@@ -1,6 +1,13 @@
 <h1>hello world</h1>
+<div id="repos"></div>
 
 <script>
-  
-  document.querySelector("h1").onclick=()=>{alert("ok")};
+  fetch("https://api.github.com/users/jenystore/repos").then(response=>response.json()).then((json)=>{ 
+    json.forEach(({full_name})=>{
+      const subDiv = document.createElement("div");
+      subDiv.innerText = full_name;
+       document.getElementById("repos").appendChild(subDiv); 
+    });
+   
+  });
 </script>
