@@ -1,13 +1,12 @@
-<h1>hello world</h1>
+<h1>My repos</h1>
 <div id="repos"></div>
 
 <script>
   fetch("https://api.github.com/users/jenystore/repos").then(response=>response.json()).then((json)=>{ 
-    json.forEach(({full_name})=>{
+    json.forEach(({full_name,html_url})=>{
       const subDiv = document.createElement("div");
-      subDiv.innerText = full_name;
-       document.getElementById("repos").appendChild(subDiv); 
+      subDiv.innerText = '<a href="'+html_url+'">'+full_name+"</a>";
+      document.getElementById("repos").appendChild(subDiv); 
     });
-   
   });
 </script>
