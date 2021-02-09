@@ -5,7 +5,7 @@
   fetch("https://api.github.com/users/jenystore/repos").then(response=>response.json()).then((json)=>{ 
     json.forEach(({full_name,html_url})=>{
       const subDiv = document.createElement("div");
-      subDiv.innerText = '<a href="'+html_url+'">'+full_name+"</a>";
+      subDiv.innerHTML = '<a href="'+html_url+'">'+full_name+"</a>";
       document.getElementById("repos").appendChild(subDiv); 
     });
   });
